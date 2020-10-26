@@ -36,7 +36,6 @@ class Products extends Component {
                         <div>Loading...</div>
                     ) : (
                         <ul className="products">
-                            {console.log(this.props)}
                             {this.props.products.map(product => (
                                 <li key={product._id}>
                                     <div className="product">
@@ -124,6 +123,6 @@ class Products extends Component {
     }
 }
 
-export default connect(state => ({ products: state.products.items }), {
+export default connect(state => ({ products: state.products.filteredItems }), {
     fetchProducts
 })(Products);
