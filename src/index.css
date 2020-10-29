@@ -282,3 +282,29 @@ input {
 .success-message {
     color: green;
 }
+
+/* Admin Panel */
+.orders-title {
+    font-size: 2.5rem;
+    padding: 1rem;
+}
+
+.order-group {
+    list-style-type: none;
+    border-bottom: 0.1rem #c0c0c0 solid;
+    margin: 1rem;
+    padding: 2rem;
+}
+
+.orders li:last-child {
+    border: none !important;
+}
+
+.button.danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.order-group button {
+    margin-top: 2rem;
+}
