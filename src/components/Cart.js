@@ -44,9 +44,6 @@ class Cart extends Component {
 
     render() {
         const { cartItems, order } = this.props;
-
-        console.log(this.props.order);
-
         return (
             <div>
                 {cartItems.length === 0 ? (
