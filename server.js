@@ -9,22 +9,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(bodyParser.json());
-
-// ** CROS MIDDLEWARE ** //
-const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'http://localhost:5000', 'https://mild-store.herokuapp.com/']
-const corsOptions = {
-  origin: function (origin, callback) {
-    console.log("** Origin of request " + origin)
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      console.log("Origin acceptable")
-      callback(null, true)
-    } else {
-      console.log("Origin rejected")
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-app.use(cors(corsOptions))
+app.use(cors());
 
 mongoose.connect(
     `mongodb+srv://rifat:${process.env.DB_PASS}@cluster0.v2d9h.mongodb.net/mild-store?retryWrites=true&w=majority`,
@@ -112,6 +97,7 @@ app.post('/api/orders', async (req, res) => {
     }
 
     const order = await Order(req.body).save();
+    console.log(order);
     res.send(order);
 });
 

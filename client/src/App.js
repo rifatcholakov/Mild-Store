@@ -23,7 +23,7 @@ class App extends React.Component {
                                 path="/product/:id"
                                 component={ProductModal}
                             />
-                            <Route component={NotFound} />
+                            {/* <Route component={NotFound} /> */}
                         </Switch>
                         <Footer />
                     </div>
