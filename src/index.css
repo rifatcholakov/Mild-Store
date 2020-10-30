@@ -319,3 +319,14 @@ input {
 .order-group button {
     margin-top: 2rem;
 }
+
+/* Not Found */
+.not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-message {
+    border-bottom: 0.3rem #000 solid;
+}
