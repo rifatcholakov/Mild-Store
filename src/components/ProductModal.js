@@ -21,13 +21,7 @@ class ProductModal extends React.Component {
         this.props.fetchProduct(this.props.match.params.id);
     }
 
-    componentDidUpdate() {
-        // this.props.fetchProduct(this.props.match.params.id);
-        console.log('Modal Component just updated');
-    }
-
     closeModal = () => {
-        // this.props.history.push('/');
         this.props.removeProductFromModal();
         this.setState({ product: null });
         window.history.pushState({}, 'URL Rewrite', `/`);

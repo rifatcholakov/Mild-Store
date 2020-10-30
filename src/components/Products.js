@@ -6,8 +6,7 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../actions/productActions';
 import { addToCart } from '../actions/cartActions';
-import { Link, withRouter } from 'react-router-dom';
-import ProductModal from './ProductModal';
+import { withRouter } from 'react-router-dom';
 
 class Products extends Component {
     constructor(props) {
@@ -84,7 +83,6 @@ class Products extends Component {
                     )}
                 </Fade>
                 {product && (
-                    // <ProductModal />
                     <Modal isOpen={true} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button
