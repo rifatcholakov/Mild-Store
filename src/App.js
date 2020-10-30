@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Home from './components/Home';
 import AdminPanel from './components/AdminPanel';
 import ProductModal from './components/ProductModal';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 class App extends React.Component {
     render() {
@@ -12,14 +14,7 @@ class App extends React.Component {
             <BrowserRouter>
                 <Provider store={store}>
                     <div className="grid-container">
-                        <header>
-                            <Link className="logo" to="/">
-                                MILD STORE
-                            </Link>
-                            <Link className="admin-link" to="/admin">
-                                Admin Panel
-                            </Link>
-                        </header>
+                        <Header />
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/admin" component={AdminPanel} />
@@ -28,10 +23,7 @@ class App extends React.Component {
                                 component={ProductModal}
                             />
                         </Switch>
-                        <footer>
-                            &copy; {new Date().getFullYear()} All rights
-                            reserved.
-                        </footer>
+                        <Footer />
                     </div>
                 </Provider>
             </BrowserRouter>
