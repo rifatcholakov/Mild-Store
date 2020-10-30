@@ -7,7 +7,7 @@ import {
 } from '../types';
 
 export const createOrder = order => dispatch => {
-    fetch('/api/orders', {
+    fetch('https://mild-store.herokuapp.com/api/orders', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ export const clearOrder = () => dispatch => {
 };
 
 export const fetchOrders = () => async dispatch => {
-    const res = await fetch('/api/orders');
+    const res = await fetch('https://mild-store.herokuapp.com/api/orders');
     const data = await res.json();
     dispatch({
         type: FETCH_ORDERS,
@@ -36,7 +36,7 @@ export const fetchOrders = () => async dispatch => {
 };
 
 export const deleteOrder = order => async dispatch => {
-    fetch(`/api/order/${order._id}`, {
+    fetch(`https://mild-store.herokuapp.com/api/order/${order._id}`, {
         method: 'DELETE'
     })
         .then(res => res.json())

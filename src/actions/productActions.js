@@ -7,7 +7,7 @@ import {
 } from '../types';
 
 export const fetchProducts = () => async dispatch => {
-    const res = await fetch('/api/products');
+    const res = await fetch('https://mild-store.herokuapp.com/api/products');
     const data = await res.json();
     dispatch({
         type: FETCH_PRODUCTS,
@@ -16,7 +16,9 @@ export const fetchProducts = () => async dispatch => {
 };
 
 export const fetchProduct = productId => async dispatch => {
-    const res = await fetch('/api/product/' + productId);
+    const res = await fetch(
+        'https://mild-store.herokuapp.com/api/product/' + productId
+    );
     const data = await res.json();
     dispatch({
         type: FETCH_PRODUCT,
