@@ -29,6 +29,11 @@ app.get('/api/products', async (req, res) => {
     res.send(products);
 });
 
+app.get('/api/product/:id', async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    res.send(product);
+});
+
 app.post('/api/product', async (req, res) => {
     const newProduct = new Product(req.body);
     const savedProduct = await newProduct.save();

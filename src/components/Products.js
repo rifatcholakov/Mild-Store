@@ -6,6 +6,8 @@ import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../actions/productActions';
 import { addToCart } from '../actions/cartActions';
+import { Link, withRouter } from 'react-router-dom';
+import ProductModal from './ProductModal';
 
 class Products extends Component {
     constructor(props) {
@@ -19,12 +21,20 @@ class Products extends Component {
         this.props.fetchProducts();
     }
 
-    openModal = product => {
+    openModal = (e, product) => {
+        e.preventDefault();
+
         this.setState({ product });
+        window.history.pushState(
+            {},
+            'URL Rewrite Example',
+            `/product/${product._id}`
+        );
     };
 
     closeModal = () => {
         this.setState({ product: null });
+        window.history.pushState({}, 'URL Rewrite', `/`);
     };
 
     render() {
@@ -41,9 +51,9 @@ class Products extends Component {
                                 <li key={product._id}>
                                     <div className="product">
                                         <a
-                                            href={'#' + product._id}
-                                            onClick={() =>
-                                                this.openModal(product)
+                                            href={'/product/' + product._id}
+                                            onClick={e =>
+                                                this.openModal(e, product)
                                             }
                                         >
                                             <img
@@ -74,6 +84,7 @@ class Products extends Component {
                     )}
                 </Fade>
                 {product && (
+                    // <ProductModal />
                     <Modal isOpen={true} onRequestClose={this.closeModal}>
                         <Zoom>
                             <button
@@ -94,7 +105,7 @@ class Products extends Component {
                                         {product.availableSizes.map(x => (
                                             <span>
                                                 {' '}
-                                                <button class="button">
+                                                <button className="button">
                                                     {x}
                                                 </button>
                                             </span>
@@ -127,4 +138,4 @@ class Products extends Component {
 export default connect(state => ({ products: state.products.filteredItems }), {
     fetchProducts,
     addToCart
-})(Products);
+})(withRouter(Products));

@@ -1,7 +1,9 @@
 import {
     FETCH_PRODUCTS,
     ORDER_PRODUCTS_BY_PRICE,
-    FILTER_PRODUCTS_BY_SIZE
+    FILTER_PRODUCTS_BY_SIZE,
+    FETCH_PRODUCT,
+    REMOVE_PRODUCT_FROM_MODAL
 } from '../types';
 
 export const fetchProducts = () => async dispatch => {
@@ -10,6 +12,22 @@ export const fetchProducts = () => async dispatch => {
     dispatch({
         type: FETCH_PRODUCTS,
         payload: data
+    });
+};
+
+export const fetchProduct = productId => async dispatch => {
+    const res = await fetch('/api/product/' + productId);
+    const data = await res.json();
+    dispatch({
+        type: FETCH_PRODUCT,
+        payload: data
+    });
+};
+
+export const removeProductFromModal = () => dispatch => {
+    dispatch({
+        type: REMOVE_PRODUCT_FROM_MODAL,
+        payload: null
     });
 };
 
