@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // ** CROS MIDDLEWARE ** //
-const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'http://localhost:5000' 'https://mild-store.herokuapp.com/']
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'http://localhost:5000', 'https://mild-store.herokuapp.com/']
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("** Origin of request " + origin)
