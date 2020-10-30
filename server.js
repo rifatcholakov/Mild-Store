@@ -2,15 +2,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const shortid = require('shortid');
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/mild-store-db', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-});
+mongoose.connect(
+    `mongodb+srv://rifat:${process.env.DB_PASS}@cluster0.v2d9h.mongodb.net/mild-store?retryWrites=true&w=majority`,
+    {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    }
+);
 
 const Product = mongoose.model(
     'Products',
