@@ -7,6 +7,7 @@ import AdminPanel from './components/AdminPanel';
 import ProductModal from './components/ProductModal';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 
 class App extends React.Component {
     render() {
@@ -22,6 +23,7 @@ class App extends React.Component {
                                 path="/product/:id"
                                 component={ProductModal}
                             />
+                            <Route component={NotFound} />
                         </Switch>
                         <Footer />
                     </div>
