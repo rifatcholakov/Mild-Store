@@ -1,7 +1,7 @@
 import React from 'react';
 import store from './store';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import AdminPanel from './components/AdminPanel';
 import ProductModal from './components/ProductModal';
@@ -23,7 +23,7 @@ class App extends React.Component {
                                 path="/product/:id"
                                 component={ProductModal}
                             />
-                            {/* <Route component={NotFound} /> */}
+                            <Route component={NotFound} />
                         </Switch>
                         <Footer />
                     </div>
