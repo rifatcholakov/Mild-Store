@@ -1,7 +1,7 @@
 # Mild Store
 ECommerce Shopping Cart build using React, Redux, MongoDB and Express.
 
-<img src="https://i.imgur.com/yFBWw3a.png" />
+<img src="https://i.imgur.com/5xz0ffT.png" />
 
 ## Preview
 
