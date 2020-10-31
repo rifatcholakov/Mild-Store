@@ -11,14 +11,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect(
-    `mongodb+srv://rifat:${process.env.DB_PASS}@cluster0.v2d9h.mongodb.net/mild-store?retryWrites=true&w=majority`,
-    {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true
-    }
-);
+mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+});
 
 const Product = mongoose.model(
     'Products',
