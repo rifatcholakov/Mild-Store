@@ -1,11 +1,11 @@
 # Mild Store
 ECommerce Shopping Cart build using React, Redux, MongoDB and Express.
 
-<img src="https://i.imgur.com/5xz0ffT.png" />
+<img src="https://i.imgur.com/Wk7sliO.png" />
 
 ## Preview
 
-https://mild-store.herokuapp.com/
+Comming Soon
 
 ## Getting Started
 1. Make sure you have these installed
